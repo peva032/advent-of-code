@@ -1,0 +1,4 @@
+loguru
+black
+pytest
+pytest-mock

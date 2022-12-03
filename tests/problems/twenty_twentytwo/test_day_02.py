@@ -1,7 +1,8 @@
 import pytest
 from advent_of_code.problems.twenty_twentytwo.day_02 import (
-    problem_01,
     prepare_strategy_data,
+    problem_01,
+    problem_02,
 )
 
 
@@ -27,3 +28,10 @@ def test_problem_01(mock_get_input_data):
     total_score = problem_01()
     # Assert
     assert total_score == 15
+
+
+def test_problem_02(mock_get_input_data):
+    # Act
+    total_score = problem_02()
+    # Assert
+    assert total_score == 12

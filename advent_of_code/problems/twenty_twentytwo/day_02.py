@@ -46,6 +46,39 @@ def problem_01() -> int:
     return sum(round_scores)
 
 
+def problem_02() -> int:
+    """
+    Day 2 problem 02: Calculates total score with pre-defined strategy
+
+    Returns:
+        int: total score
+    """
+    outcome_lookup = {"X": 0, "Y": 3, "Z": 6}
+    selection_lookup = {
+        "A X": 3,
+        "B X": 1,
+        "C X": 2,
+        "A Y": 1,
+        "B Y": 2,
+        "C Y": 3,
+        "A Z": 2,
+        "B Z": 3,
+        "C Z": 1,
+    }
+
+    strategy_data = prepare_strategy_data()
+    round_scores = []
+
+    for round in strategy_data:
+        _, strategy = round.split(" ")
+        score = selection_lookup[round] + outcome_lookup[strategy]
+        round_scores.append(score)
+
+    return sum(round_scores)
+
+
 if __name__ == "__main__":
-    total_score = problem_01()
-    logger.info(total_score)
+    problem_one_total_score = problem_01()
+    logger.info(problem_one_total_score)
+    problem_two_total_score = problem_02()
+    logger.info(problem_two_total_score)

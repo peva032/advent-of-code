@@ -16,7 +16,9 @@ for i in "$@"; do
     esac
 done
 
+INPUT_DATA_URL="https://adventofcode.com/${YEAR}/day/${DAY}/input"
 YEAR=2022
+DAY="$(printf %02d ${DAY})"
 WORD_YEAR=twenty_twentytwo
 INPUT_DATA_PATH="${PWD}/advent_of_code/data/${YEAR}"
 PROBLEM_PATH="${PWD}/advent_of_code/problems/${WORD_YEAR}"
@@ -27,7 +29,7 @@ PROBLEM_FILE="${PROBLEM_PATH}/day_${DAY}.py"
 TEST_FILE="${TESTS_PATH}/test_day_${DAY}.py"
     
 
-echo "Creating input data file: ${INPUT_DATA_PATH}"
+echo "Creating input data file: ${INPUT_DATA_FILE}"
 if [ ! -f $INPUT_DATA_FILE ]; then
     touch $INPUT_DATA_FILE
 else
@@ -43,7 +45,7 @@ else
 fi
 
 echo "Creating test file: ${TEST_FILE}"
-if [ ! -f TEST_FILE ]; then
+if [ ! -f $TEST_FILE ]; then
     touch $TEST_FILE
     echo "import pytest" >> $TEST_FILE
 else

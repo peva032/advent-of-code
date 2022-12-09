@@ -2,3 +2,5 @@ loguru
 black
 pytest
 pytest-mock
+pandas
+numpy
